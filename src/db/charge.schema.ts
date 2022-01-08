@@ -10,7 +10,10 @@ export enum ChargeFrequency {
 
 export type ChargeDocument = Charge & Document;
 
-@Schema()
+@Schema({
+  strictQuery: 'throw',
+  timestamps: true,
+})
 export class Charge {
   @Prop() user: string;
 

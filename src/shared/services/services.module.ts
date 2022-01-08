@@ -1,7 +1,8 @@
 import { Global, Module } from '@nestjs/common';
 import { UserService } from './user/user.service';
+import { ChargeService } from './charge/charge.service';
 
-const services = [UserService];
+const services = [UserService, ChargeService];
 
 @Global()
 @Module({

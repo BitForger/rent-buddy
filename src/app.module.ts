@@ -5,7 +5,7 @@ import { MongooseModule, MongooseModuleOptions } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { User, UserSchema } from './db/user.schema';
 import { Charge, ChargeSchema } from './db/charge.schema';
-import { Buffer } from 'buffer';
+import { ChargeController } from './controllers/charge/charge.controller';
 
 @Global()
 @Module({
@@ -18,13 +18,12 @@ import { Buffer } from 'buffer';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory(configService: ConfigService): MongooseModuleOptions {
-        const certString = configService.get('MONGO_CERT');
-        const decoded = Buffer.from(certString, 'base64').toString('utf-8');
+        // const certString = configService.get('MONGO_CERT');
+        // const decoded = Buffer.from(certString, 'base64').toString('utf-8');
         const uri = configService.get<string>('MONGO_URI');
         return {
           uri,
           dbName: 'rent-buddy',
-          ca: decoded,
         };
       },
     }),
@@ -34,7 +33,7 @@ import { Buffer } from 'buffer';
     ]),
     ServicesModule,
   ],
-  controllers: [UserController],
+  controllers: [UserController, ChargeController],
   providers: [],
   exports: [MongooseModule],
 })
