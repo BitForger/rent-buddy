@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { User, UserSchema } from './db/user.schema';
 import { Charge, ChargeSchema } from './db/charge.schema';
 import { ChargeController } from './controllers/charge/charge.controller';
+import { LoggerModule, Params } from 'nestjs-pino';
 
 @Global()
 @Module({
@@ -13,6 +14,16 @@ import { ChargeController } from './controllers/charge/charge.controller';
     ConfigModule.forRoot({
       envFilePath: '.env',
       isGlobal: true,
+    }),
+    LoggerModule.forRootAsync({
+      inject: [ConfigService],
+      async useFactory(configService: ConfigService): Promise<Params> {
+        return {
+          pinoHttp: {
+            prettyPrint: configService.get('NODE_ENV') === 'production',
+          },
+        };
+      },
     }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
