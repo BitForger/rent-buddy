@@ -6,7 +6,7 @@
   },
   "private": true,
   "scripts": {
-
+    "start:dev": "npm run start:dev --workspace=packages/api"
   },
   "dependencies": {
   },
