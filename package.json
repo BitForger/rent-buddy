@@ -1,5 +1,9 @@
 {
   "name": "rent-buddy",
+  "author": {
+    "name": "BitForger",
+    "url": "https://github.com/BitForger/rent-buddy"
+  },
   "private": true,
   "scripts": {
 
