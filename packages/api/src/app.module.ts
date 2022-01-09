@@ -1,12 +1,12 @@
-import { Global, Module } from '@nestjs/common';
-import { ServicesModule } from './shared/services/services.module';
-import { UserController } from './controllers/user/user.controller';
-import { MongooseModule, MongooseModuleOptions } from '@nestjs/mongoose';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { User, UserSchema } from './db/user.schema';
-import { Charge, ChargeSchema } from './db/charge.schema';
-import { ChargeController } from './controllers/charge/charge.controller';
-import { LoggerModule, Params } from 'nestjs-pino';
+import { Global, Module } from "@nestjs/common";
+import { ServicesModule } from "./shared/services/services.module";
+import { UserController } from "./controllers/user/user.controller";
+import { MongooseModule, MongooseModuleOptions } from "@nestjs/mongoose";
+import { ConfigModule, ConfigService } from "@nestjs/config";
+import { User, UserSchema } from "./db/user.schema";
+import { Charge, ChargeSchema } from "./db/charge.schema";
+import { ChargeController } from "./controllers/charge/charge.controller";
+import { LoggerModule, Params } from "nestjs-pino";
 
 @Global()
 @Module({

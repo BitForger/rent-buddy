@@ -1,5 +1,5 @@
-import { Controller, Get, NotFoundException, Param } from '@nestjs/common';
-import { UserService } from '../../shared/services/user/user.service';
+import { Controller, Get, NotFoundException, Param } from "@nestjs/common";
+import { UserService } from "../../shared/services/user/user.service";
 
 @Controller('user')
 export class UserController {
